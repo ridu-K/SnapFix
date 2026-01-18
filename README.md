@@ -1,4 +1,4 @@
-# Complaint Bridge Management System
+# SnapFix - Complaint Bridge Management System
 
 A comprehensive web-based platform that enables citizens to report real-time public issues and allows authorities to efficiently assign, track, and resolve complaints. Built with Flask (Python) backend, PostgreSQL database, and React frontend.
 
