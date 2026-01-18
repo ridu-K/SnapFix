@@ -1,0 +1,191 @@
+.create-complaint-page {
+  min-height: 100vh;
+  background: var(--bg-light);
+  padding: 32px 0;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn1,
+.btn2{
+  padding: 10px 30px 10px 30px;
+  margin: 0px 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.btn1::after,
+.btn2::after{
+  content: '';
+  width: 0;
+  height: 100%;
+  border-bottom: 2px solid lightgray;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.btn1:hover::after,
+.btn2:hover::after{
+  width: 100%;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.smart-load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: #f9fafb;
+}
+
+.dots-loader {
+  display: flex;
+  gap: 8px;
+}
+
+.dots-loader span {
+  width: 12px;
+  height: 12px;
+  background: #007bff;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.dots-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translateY(-10px);
+  }
+}
+
+
+.btn-back:hover {
+  color: var(--primary-color);
+}
+
+.page-header h1 {
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.page-header p {
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.complaint-form-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-upload {
+  margin-top: 8px;
+}
+
+.upload-label {
+  display: block;
+  cursor: pointer;
+}
+
+.upload-placeholder {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 48px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.upload-placeholder:hover {
+  border-color: var(--primary-color);
+  background: var(--bg-light);
+}
+
+.upload-placeholder p {
+  margin: 12px 0 4px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.upload-placeholder span {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.image-preview {
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.form-actions .btn {
+  min-width: 120px;
+}
+
+@media (max-width: 768px) {
+  .complaint-form-card {
+    padding: 24px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
