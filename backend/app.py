@@ -9,7 +9,6 @@ from sqlalchemy import case
 from werkzeug.utils import secure_filename
 import google.generativeai as genai
 from flask_mail import Mail, Message
-import json
 import joblib
 from scipy.sparse import hstack, csr_matrix
 import numpy as np
