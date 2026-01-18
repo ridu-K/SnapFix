@@ -110,7 +110,7 @@ Before you begin, ensure you have the following installed:
 ### Step 1: Clone or Navigate to the Project
 
 ```powershell
-cd C:\Users\ALPANA\Desktop\RINL
+git clone https://github.com/ridu-K/SnapFix.git
 ```
 
 ### Step 2: Set Up PostgreSQL Database
@@ -146,7 +146,7 @@ python -m venv venv
 3. Activate the virtual environment:
 
 ```powershell
-.\venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate
 ```
 
 4. Install dependencies:
@@ -166,7 +166,9 @@ Copy-Item .env.example .env
 ```
 DATABASE_URL=postgresql://postgres:your_password@localhost:5432/complaint_bridge
 JWT_SECRET_KEY=your-secret-key-change-in-production
-FLASK_ENV=development
+GMAIL=xyz@gmail.com
+APP_PASS=abcd abcd abcd abcd
+API_KEY=GEMINI_API_KEY
 ```
 
 ### Step 4: Set Up Frontend
@@ -174,7 +176,7 @@ FLASK_ENV=development
 1. Open a new PowerShell window and navigate to frontend:
 
 ```powershell
-cd C:\Users\ALPANA\Desktop\RINL\frontend
+cd frontend
 ```
 
 2. Install dependencies:
@@ -194,8 +196,8 @@ The database tables will be created automatically when you first run the Flask a
 1. In the backend folder (with virtual environment activated):
 
 ```powershell
-cd C:\Users\ALPANA\Desktop\RINL\backend
-.\venv\Scripts\Activate.ps1
+cd backend
+.\venv\Scripts\Activate
 python app.py
 ```
 
@@ -206,7 +208,7 @@ The backend will run on: `http://localhost:5000`
 2. In a new PowerShell window:
 
 ```powershell
-cd C:\Users\ALPANA\Desktop\RINL\frontend
+cd frontend
 npm start
 ```
 
@@ -266,12 +268,18 @@ You need to register new users through the registration page.
 ## 📸 Screenshots
 
 ### Landing Page
+<img width="1891" height="989" alt="image" src="https://github.com/user-attachments/assets/179d0cf5-ee36-42b4-8f89-1f40d4b6c52c" />
+
 Beautiful hero section with features showcase and call-to-action.
 
 ### User Dashboard
+<img width="1892" height="894" alt="image" src="https://github.com/user-attachments/assets/426c417b-43e0-438a-a052-b1b1c42ae8a3" />
+
 Shows all submitted complaints with status tracking and quick actions.
 
 ### Admin Dashboard
+<img width="1896" height="991" alt="image" src="https://github.com/user-attachments/assets/6057b462-3229-4dc6-a69b-9aee7abd8db6" />
+
 Comprehensive analytics with:
 - Total complaints, users, and workers statistics
 - Status distribution pie chart
@@ -280,103 +288,14 @@ Comprehensive analytics with:
 - User and worker management
 
 ### Complaint Detail
+<img width="1894" height="996" alt="image" src="https://github.com/user-attachments/assets/8003754b-a424-4789-8acf-a56e8b9dc86c" />
+
 Detailed view with:
 - Complaint information
 - Image preview
 - Status updates timeline
 - Worker assignment
 - Contact information
-
-## 🔧 Configuration
-
-### Backend Configuration (app.py)
-
-Update the following configurations as needed:
-
-```python
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://...'
-app.config['JWT_SECRET_KEY'] = 'your-secret-key'
-app.config['UPLOAD_FOLDER'] = 'uploads'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
-```
-
-### Frontend Configuration
-
-Update API URL in frontend files if deploying to production:
-
-```javascript
-axios.get('http://localhost:5000/api/...')
-// Change to your production URL
-```
-
-## 🚀 Deployment
-
-### Backend Deployment (Production)
-
-1. Set `FLASK_ENV=production` in `.env`
-2. Use a production WSGI server (Gunicorn):
-
-```powershell
-pip install gunicorn
-gunicorn app:app
-```
-
-3. Set up PostgreSQL on your production server
-4. Configure environment variables
-5. Set up file upload storage
-
-### Frontend Deployment
-
-1. Build the React app:
-
-```powershell
-npm run build
-```
-
-2. Deploy the `build` folder to:
-   - Netlify
-   - Vercel
-   - AWS S3 + CloudFront
-   - Any static hosting service
-
-## 🔒 Security Notes
-
-- Change the `JWT_SECRET_KEY` in production
-- Update database credentials
-- Enable HTTPS in production
-- Implement rate limiting for APIs
-- Add input validation and sanitization
-- Set up proper CORS origins
-
-## 🐛 Troubleshooting
-
-### Backend Issues
-
-1. **Database connection error:**
-   - Verify PostgreSQL is running
-   - Check database credentials in `.env`
-   - Ensure database exists
-
-2. **Module not found:**
-   - Activate virtual environment
-   - Reinstall requirements: `pip install -r requirements.txt`
-
-3. **Port already in use:**
-   - Change Flask port: `app.run(port=5001)`
-
-### Frontend Issues
-
-1. **Module not found:**
-   - Delete `node_modules` and `package-lock.json`
-   - Run `npm install` again
-
-2. **Cannot connect to backend:**
-   - Verify backend is running on port 5000
-   - Check CORS configuration
-
-3. **Build errors:**
-   - Clear npm cache: `npm cache clean --force`
-   - Update dependencies: `npm update`
 
 ## 📝 License
 
